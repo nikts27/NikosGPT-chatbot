@@ -14,7 +14,6 @@ Welcome to **NikosGPT**, a lightweight AI chatbot built in Python that generates
 - [Installation](#installation)
 - [Usage](#usage)
 - [Keywords JSON Format](#keywords-json-format)
-- [Demo](#demo)
 - [Future Improvements](#future-improvements)
 - [Author](#author)
 
