@@ -1,59 +1,156 @@
 # NikosGPT - A Keyword-based AI Chatbot
 
-Welcome to **NikosGPT**, a keyword-based AI chatbot that can respond dynamically to user input using a combination of keyword recognition and message swapping. This project leverages Python, regular expressions, and JSON-based keyword mapping to create responses that adapt to user inputs.
+Welcome to **NikosGPT**, a lightweight AI chatbot built in Python that generates dynamic responses based on user input using keyword matching and message transformation. It’s designed to be customizable, modular, and easily extendable.
 
-## Table of Contents
+> ⚡ Inspired by early natural language systems like ELIZA — built for modern learning and experimentation.
+
+---
+
+## 📑 Table of Contents
+
 - [Features](#features)
 - [How It Works](#how-it-works)
+- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Keywords JSON Format](#keywords-json-format)
+- [Demo](#demo)
+- [Future Improvements](#future-improvements)
+- [Author](#author)
 
-## Features
+---
 
-- **Dynamic Responses**: The chatbot can provide context-aware responses by recognizing keywords in user input.
-- **Customizable**: Easily update keywords, responses, and swap patterns by editing a JSON file.
-- **Punctuation Swapping**: The bot can swap punctuation marks (like `.` and `?`) for more dynamic sentence flow.
-- **Fallback Generic Responses**: If no keywords are matched, the bot provides a generic response from a predefined list.
-- **Keyword Matching**: Utilizes regular expressions to find keyword occurrences and responds accordingly.
+## 🚀 Features
 
-## How It Works
+- **Dynamic Response Generation**: Uses keyword mapping and word swapping to form contextual replies.
+- **Configurable Behavior**: Modify keywords, patterns, and responses in a single JSON file — no code required.
+- **Punctuation Swapping**: Automatically transforms punctuation (e.g. `.` ↔ `?`) to simulate conversational tone.
+- **Fallback System**: When no match is found, the bot offers helpful generic responses.
+- **Modular Codebase**: Clean separation of core logic, utilities, and configuration.
 
-NikosGPT uses a keyword-based system to craft responses. The steps are:
-1. **User Input**: The bot receives the user’s message.
-2. **Keyword Search**: The program checks if any predefined keywords (stored in a JSON file) appear in the message.
-3. **Response Generation**: If keywords are found, it builds a response by performing word swaps and applying a base response associated with the keyword.
-4. **Punctuation Swap**: The program replaces punctuation marks like `.` with `?` for variety.
-5. **Generic Response**: If no keywords are found, the bot uses a generic fallback response from a predefined list.
-   
-## Installation
+---
+
+##⚙️ How It Works
+
+1. **User Input**: The user types a message.
+2. **Keyword Matching**: The bot scans the message using regular expressions.
+3. **Message Transformation**: It swaps relevant words based on a predefined `swaps` dictionary.
+4. **Response Construction**: A response is selected from a keyword-mapped list and merged into a reply.
+5. **Fallback Response**: If no keywords match, a generic message is used.
+
+---
+
+## 🗂️ Project Structure
+
+```
+NikosGPT/
+├── chatbot/
+│   ├── __init__.py        # Package initializer
+│   ├── core.py            # Chatbot logic (response generation, swapping)
+│   ├── config.py          # Keyword JSON loader
+│   └── utils.py           # Helpers (keyword search, punctuation swap)
+├── data/
+│   └── keywords.json      # Customizable behavior definitions
+├── main.py                # Entry point for the chatbot
+├── requirements.txt       # Dependencies
+└── README.md              # Documentation (this file)
+```
+
+---
+
+## 📥 Installation
 
 ### Requirements
 
 - Python 3.6 or higher
-- A JSON file containing the keywords and responses (See [keywords.json](#keywords-json-format))
+- Git (optional, for cloning)
 
 ### Steps
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/yourusername/NikosGPT.git
-    cd NikosGPT
-    ```
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/NikosGPT-chatbot.git
+   cd NikosGPT-chatbot
+   ```
 
-2. **Create Your `keywords.json` File** (See format below)
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. **Run the Script**:
-    ```bash
-    python nikos_gpt.py
-    ```
+3. **Run the Chatbot**
+   ```bash
+   python main.py
+   ```
 
-## Usage
+---
 
-Once the bot starts, it will greet you with a message:
+## 💬 Usage
 
-```bash
+Once started, the chatbot will greet you:
+
+```
 NikosGPT: Hello, I am NikosGPT, an AI chatbot. How can I help you today?
 (Type bye to finish conversation)
 ```
 
-You can type messages to interact with the bot. Type `bye` to end the conversation.
+You can then type messages like:
+- `Can you help me?`
+- `I feel sad`
+- `Why don't you listen?`
+
+Type `bye` to exit.
+
+---
+
+## 🧠 Keywords JSON Format
+
+Example structure of `keywords.json`:
+
+```json
+{
+  "keyword-responses": {
+    "I AM SAD": ["WHY DO YOU FEEL THAT WAY?", "DO YOU WANT TO TALK ABOUT IT?"]
+  },
+  "responsesPerKeyword": [2],
+  "swaps": {
+    "I": "YOU",
+    "YOU": "I"
+  },
+  "generic-responses": [
+    "I'M NOT SURE I FOLLOW — WANT TO REPHRASE?"
+  ]
+}
+```
+
+This makes it easy to extend the bot without touching the code.
+
+---
+
+## 🖼 Demo
+
+> *(Optional: Add a screenshot or GIF here)*
+
+![Chat Demo](assets/demo.png)
+
+---
+
+## 🔭 Future Improvements
+
+- Add Flask or FastAPI web interface
+- Support for sentence-level sentiment analysis
+- Conversation history & memory
+- Expand keyword detection with synonyms (via NLTK or spaCy)
+- Add unit tests and CI integration (e.g., GitHub Actions)
+
+---
+
+## 👤 Author
+
+Created by Nikolaos Tsaridis(https://github.com/nikts27)
+
+If you like this project or want to collaborate, feel free to connect on [LinkedIn](https://linkedin.com/in/your-profile) 
+
+---
+
+🧠 _This project was created for the first assignment of the course "Theory of Computation." (Applied Informatics, UoM, 3rd year)!_
