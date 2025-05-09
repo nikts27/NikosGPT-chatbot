@@ -45,10 +45,9 @@ Welcome to **NikosGPT**, a lightweight AI chatbot built in Python that generates
 ```
 NikosGPT/
 ├── chatbot/
-│   ├── __init__.py        # Package initializer
 │   ├── core.py            # Chatbot logic (response generation, swapping)
 │   ├── config.py          # Keyword JSON loader
-│   └── utils.py           # Helpers (keyword search, punctuation swap)
+│   └── utils.py           # Helpers (generic responses, punctuation swap)
 ├── data/
 │   └── keywords.json      # Customizable behavior definitions
 ├── main.py                # Entry point for the chatbot
@@ -127,14 +126,6 @@ This makes it easy to extend the bot without touching the code.
 
 ---
 
-## 🖼 Demo
-
-> *(Optional: Add a screenshot or GIF here)*
-
-![Chat Demo](assets/demo.png)
-
----
-
 ## 🔭 Future Improvements
 
 - Add Flask or FastAPI web interface
@@ -149,7 +140,7 @@ This makes it easy to extend the bot without touching the code.
 
 Created by Nikolaos Tsaridis(https://github.com/nikts27)
 
-If you like this project or want to collaborate, feel free to connect on [LinkedIn](https://linkedin.com/in/your-profile) 
+If you like this project or want to collaborate, feel free to connect on [LinkedIn](https://www.linkedin.com/in/ntsaridis/)) 
 
 ---
 
